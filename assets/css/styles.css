@@ -1,0 +1,120 @@
+:root {
+    --brandA: #22c1c3;
+    --brandB: #6a00f4;
+    --brandC: #ff6b6b;
+    --brandD: #ffd166;
+    --brandE: #06d6a0;
+    --brandF: #4cc9f0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Fredoka", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Simple, friendly animations */
+@keyframes floaty {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-6px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+
+    25% {
+        transform: rotate(-5deg)
+    }
+
+    75% {
+        transform: rotate(5deg)
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45)
+    }
+
+    50% {
+        box-shadow: 0 0 0 12px rgba(255, 255, 255, 0)
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-120vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(120vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti>span {
+    position: absolute;
+    top: -10vh;
+    left: 50%;
+    width: 10px;
+    height: 18px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+}
+
+.celebrate .hat {
+    animation: floaty 2.2s ease-in-out infinite;
+}
+
+.sad .tear {
+    animation: floaty 1.8s ease-in-out infinite;
+}
+
+.btn-glow {
+    animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+.card-pop {
+    transform: translateY(6px) scale(0.98);
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.card-pop.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all .4s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}

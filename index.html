@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpeakUp Kids — Canva Code</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="bg-[url('assets/images/bg.png')] bg-no-repeat bg-[length:100%_100%] text-white selection:bg-white/30">
+  <!-- App Wrapper -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Top Greeting / Status Bar -->
+    <header class="w-full">
+      <div id="topBar" class="max-w-5xl mx-auto px-5 pt-5 hidden">
+        <div
+          class="w-full rounded-2xl bg-white/10 backdrop-blur-md ring-1 ring-white/15 px-5 py-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Mini Logo -->
+            <div class="rounded-xl bg-white/20 p-2">
+              <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+                <defs>
+                  <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FF6B6B" />
+                    <stop offset="100%" stop-color="#FFD166" />
+                  </linearGradient>
+                </defs>
+                <circle cx="32" cy="32" r="28" fill="url(#lg1)"></circle>
+                <path d="M20 34 Q32 44 44 34" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" />
+                <circle cx="24" cy="24" r="3" fill="#fff" />
+                <circle cx="40" cy="24" r="3" fill="#fff" />
+              </svg>
+            </div>
+            <p id="greet" class="text-white/90 text-sm sm:text-base">Halo!</p>
+          </div>
+          <button id="btnHomeTop"
+            class="text-xs sm:text-sm rounded-full bg-white/20 hover:bg-white/30 px-4 py-2 transition hidden">
+            Beranda
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex items-stretch">
+      <div class="w-full max-w-5xl mx-auto px-5 py-6 relative">
+
+        <!-- HOME VIEW -->
+        <section id="view-home" class="w-full">
+          <div class="w-full pt-6 md:pt-8 flex flex-col items-center text-center">
+            <!-- SpeakUp Kids Logo -->
+            <div class="mb-6 sm:mb-10 animate-[floaty_3s_ease-in-out_infinite]">
+              <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/15 px-7 py-4">
+                <div class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+                  <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-pink-300 to-sky-200 drop-shadow">
+                    <img src="assets/images/logo.png" alt="Logo" class="w-64 h-48" />
+                  </span>
+                </div>
+                <div class="text-white/80 mt-1 text-sm sm:text-lg">Berani bicara, berani jaga diri</div>
+              </div>
+            </div>
+
+            <!-- Buttons area (middle bottom-ish) -->
+            <div class="mt-10 sm:mt-12 flex flex-col items-center gap-3">
+              <button id="btnPlay"
+                class="w-full btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 px-7 py-3.5 rounded-2xl font-semibold shadow-lg shadow-black/10 transition focus:outline-none focus:ring-2 focus:ring-white/60">
+                <i class="fa-solid fa-play"></i>
+                Ayo Bermain
+              </button>
+              <button id="btnTell"
+                class="w-full btn-glow inline-flex items-center gap-2 bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 px-7 py-3.5 rounded-2xl font-semibold shadow-lg shadow-black/10 transition focus:outline-none focus:ring-2 focus:ring-white/60">
+                <i class="fa-solid fa-comment"></i>
+                Ayo Bercerita
+              </button>
+              <div class="text-indigo-700 text-xs mt-2">Mulai setelah isi biodata ya!</div>
+            </div>
+          </div>
+
+          <!-- Biodata Overlay -->
+          <div id="biodataOverlay"
+            class="fixed inset-0 bg-black/50 backdrop-blur-[2px] flex items-center justify-center z-50">
+            <div class="w-[92%] max-w-md rounded-3xl bg-white text-slate-800 p-5 sm:p-6 shadow-2xl">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-indigo-100 p-2">
+                  <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="28" fill="#4F46E5" />
+                    <path d="M20 34 Q32 44 44 34" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" />
+                    <circle cx="24" cy="24" r="3" fill="#fff" />
+                    <circle cx="40" cy="24" r="3" fill="#fff" />
+                  </svg>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Halo! Kenalan dulu ya</h2>
+              </div>
+              <p class="mt-2 text-slate-600 text-sm">Isi nama dan kelas supaya kita bisa menyapamu dengan benar.</p>
+              <form id="formBiodata" class="mt-4 space-y-3">
+                <div>
+                  <label for="nama" class="block text-sm font-medium text-slate-700 mb-1">Nama</label>
+                  <input id="nama" name="nama" type="text" required
+                    class="w-full rounded-xl border border-slate-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    placeholder="Tuliskan namamu">
+                </div>
+                <div>
+                  <label for="kelas" class="block text-sm font-medium text-slate-700 mb-1">Kelas</label>
+                  <input id="kelas" name="kelas" type="text" required
+                    class="w-full rounded-xl border border-slate-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                    placeholder="Contoh: 3A">
+                </div>
+                <div class="pt-1 flex items-center gap-2">
+                  <button id="btnBiodataOK" disabled
+                    class="w-full rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2.5 transition disabled:opacity-40 disabled:cursor-not-allowed">
+                    Oke
+                  </button>
+                </div>
+              </form>
+              <div class="mt-3 text-xs text-slate-500">Data ini hanya dipakai di halaman ini saja.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GAME: BODY PARTS -->
+        <section id="view-game-parts" class="hidden">
+          <div class="mb-5 text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Kenali Bagian Tubuhmu</h3>
+            <p class="text-white/85 mt-1">Klik semua kotak untuk belajar. Kotak akan berubah warna jika sudah kamu klik.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+            <!-- 6 Cards -->
+            <button data-part="kepala"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Head icon -->
+                  <img src="assets/images/kepala.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Kepala</div>
+                  <div class="text-xs text-white/80">Bagian penting dilindungi rambut dan helm.</div>
+                </div>
+              </div>
+            </button>
+
+            <button data-part="tangan"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Hand icon -->
+                  <img src="assets/images/tangan.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Tangan</div>
+                  <div class="text-xs text-white/80">Untuk salaman sopan, minta izin dulu.</div>
+                </div>
+              </div>
+            </button>
+
+            <button data-part="kaki"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Foot icon -->
+                  <img src="assets/images/kaki.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Kaki</div>
+                  <div class="text-xs text-white/80">Dipakai berjalan dan berlari.</div>
+                </div>
+              </div>
+            </button>
+
+            <button data-part="dada"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Chest icon -->
+                  <img src="assets/images/dada.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Dada</div>
+                  <div class="text-xs text-white/80">Termasuk area pribadi, jaga ya.</div>
+                </div>
+              </div>
+            </button>
+
+            <button data-part="kemaluan"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Private icon (lock) -->
+                  <img src="assets/images/kemaluan.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Kemaluan</div>
+                  <div class="text-xs text-white/80">Sangat pribadi. Tidak boleh disentuh orang lain.</div>
+                </div>
+              </div>
+            </button>
+
+            <button data-part="pantat"
+              class="part-card group rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 sm:p-5 text-left transition focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="rounded-xl bg-white/15 p-3 group-hover:animate-[wiggle_0.5s_ease-in-out]">
+                  <!-- Simple butt icon (abstract, PG) -->
+                  <img src="assets/images/pantat.png" alt="Logo" class="w-16 h-16" />
+                </div>
+                <div>
+                  <div class="font-bold">Pantat</div>
+                  <div class="text-xs text-white/80">Area pribadi. Katakan “Tidak!” jika diganggu.</div>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Info "audio" text bubble (no real audio) -->
+          <div id="audioBubble"
+            class="hidden mt-5 mx-auto w-full sm:w-3/4 rounded-2xl bg-white/15 backdrop-blur-md ring-1 ring-white/20 p-4">
+            <div class="flex items-start gap-3">
+              <div class="rounded-xl bg-white/20 p-2">
+                <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="12" y="24" width="16" height="16" rx="4" fill="#FFD166" />
+                  <path d="M32 28 Q44 32 44 40" stroke="#FFD166" stroke-width="4" fill="none" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div id="audioTitle" class="font-bold">Pesan</div>
+                <div id="audioText" class="text-white/90 text-sm mt-1">…</div>
+                <!-- Visual "wave" bars -->
+                <div class="mt-3 flex items-end gap-1 h-5">
+                  <div class="w-1 bg-yellow-300/90 rounded animate-[floaty_1s_ease-in-out_infinite]"
+                    style="height: 16px">
+                  </div>
+                  <div class="w-1 bg-yellow-200/90 rounded animate-[floaty_1.2s_ease-in-out_infinite]"
+                    style="height: 12px">
+                  </div>
+                  <div class="w-1 bg-yellow-300/90 rounded animate-[floaty_0.9s_ease-in-out_infinite]"
+                    style="height: 20px">
+                  </div>
+                  <div class="w-1 bg-yellow-200/90 rounded animate-[floaty_1.3s_ease-in-out_infinite]"
+                    style="height: 14px">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-xs text-white/70 mt-2">Catatan: Suara asli tidak diputar. Ini tampilan teks sebagai
+              pengganti.</div>
+          </div>
+
+          <!-- Next Arrow -->
+          <div class="mt-6 flex items-center justify-center">
+            <button id="btnNextFromParts"
+              class="hidden inline-flex items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 px-6 py-3 font-semibold transition">
+              Lanjut <span>➡️</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- GAME: "VIDEO" SIMULASI -->
+        <section id="view-game-video" class="hidden">
+          <div class="mb-5 text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Simulasi: Benar atau Salah?</h3>
+          </div>
+
+          <div class="rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/15 p-4 sm:p-6">
+            <div class="flex flex-col gap-4">
+              <!-- "Video" Stage -->
+              <div class="relative rounded-2xl bg-black/20 p-3 sm:p-4 overflow-hidden min-h-[180px]">
+                <div id="sceneText" class="text-center text-sm sm:text-base text-white/90 fade-in">Memulai…</div>
+                <div class="mt-3 flex items-center justify-center gap-10">
+                  <!-- Child -->
+                  <div id="child" class="transition">
+                    <svg viewBox="0 0 120 140" class="w-24 h-24">
+                      <circle cx="60" cy="36" r="18" fill="#FFD6A5" />
+                      <rect x="36" y="58" width="48" height="40" rx="10" fill="#4CC9F0" />
+                      <rect x="46" y="98" width="8" height="26" rx="4" fill="#FFD6A5" />
+                      <rect x="66" y="98" width="8" height="26" rx="4" fill="#FFD6A5" />
+                    </svg>
+                    <div class="text-center text-xs mt-1">Anak</div>
+                  </div>
+                  <!-- Adult -->
+                  <div id="adult" class="opacity-50 transition">
+                    <svg viewBox="0 0 120 140" class="w-24 h-24">
+                      <circle cx="60" cy="30" r="16" fill="#FFB88C" />
+                      <rect x="34" y="52" width="52" height="50" rx="12" fill="#06D6A0" />
+                      <rect x="44" y="102" width="10" height="30" rx="4" fill="#FFB88C" />
+                      <rect x="66" y="102" width="10" height="30" rx="4" fill="#FFB88C" />
+                    </svg>
+                    <div class="text-center text-xs mt-1">Orang Dewasa</div>
+                  </div>
+                </div>
+
+                <!-- Alert Hand appears on step -->
+                <div id="alertHand" class="hidden absolute left-1/2 -translate-x-1/2 top-6">
+                  <div class="rounded-full bg-red-500/90 text-white px-3 py-1 text-xs font-bold shadow">Tidak Pantas!
+                  </div>
+                </div>
+              </div>
+
+              <!-- Progress -->
+              <div class="w-full h-2 rounded-full bg-white/15 overflow-hidden">
+                <div id="progressBar" class="h-full w-0 bg-gradient-to-r from-yellow-300 via-pink-300 to-sky-300"></div>
+              </div>
+
+              <!-- After play: choices -->
+              <div id="videoChoices" class="hidden flex items-center justify-center gap-4">
+                <button id="btnBenar"
+                  class="rounded-2xl bg-emerald-400/90 hover:bg-emerald-300 text-emerald-950 font-bold px-5 py-3 shadow transition focus:outline-none">
+                  ✅ Benar
+                </button>
+                <button id="btnSalah"
+                  class="rounded-2xl bg-rose-400/90 hover:bg-rose-300 text-rose-950 font-bold px-5 py-3 shadow transition focus:outline-none">
+                  ❌ Salah
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <button id="btnReplay"
+                  class="rounded-xl bg-white/15 hover:bg-white/25 ring-1 ring-white/20 px-4 py-2 text-sm transition">Putar
+                  Ulang</button>
+                <button id="btnToGameFinish"
+                  class="hidden rounded-xl bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 font-semibold px-4 py-2 transition">Lanjut</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback Overlay -->
+          <div id="feedbackOverlay" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div
+              class="relative w-[92%] max-w-md rounded-3xl bg-white text-slate-800 p-5 sm:p-6 shadow-2xl text-center">
+              <!-- Success -->
+              <div id="successBox" class="hidden celebrate">
+                <div class="mx-auto w-28 h-28 relative">
+                  <!-- kid with hat -->
+                  <!-- <svg viewBox="0 0 160 160" class="w-full h-full">
+                    <circle cx="80" cy="80" r="70" fill="#E8F7FF" />
+                    <circle cx="80" cy="66" r="22" fill="#FFD6A5" />
+                    <path d="M58 56 L80 46 L102 56 L80 66 Z" fill="#2B2D42" class="hat" />
+                    <rect x="54" y="92" width="52" height="34" rx="10" fill="#4CC9F0" />
+                  </svg> 
+                   <div class="confetti absolute inset-0 pointer-events-none"> -->
+                  <!-- confetti pieces -->
+                  <!-- <span style="left:20%; background:#FF6B6B; animation-duration:2.2s"></span>
+                    <span style="left:40%; background:#FFD166; animation-duration:2.6s"></span>
+                    <span style="left:60%; background:#06D6A0; animation-duration:2.1s"></span>
+                    <span style="left:80%; background:#4CC9F0; animation-duration:2.5s"></span>
+                  </div> -->
+
+                  <lottie-player src="assets/animations/jumping_kid_lottie.json" background="transparent" speed="1"
+                    style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+                </div>
+                <h4 class="text-xl font-extrabold mt-3 text-emerald-600">Betul! Kamu hebat! 🎉</h4>
+                <p class="text-slate-600 mt-1 text-sm">Saat ada yang menyentuh area pribadi, berteriak, berlari, dan
+                  lapor adalah tindakan yang tepat.</p>
+                <div class="mt-4 flex items-center justify-center gap-2">
+                  <button id="okSuccess"
+                    class="rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 transition">Lanjut</button>
+                </div>
+              </div>
+
+              <!-- Error -->
+              <div id="errorBox" class="hidden sad">
+                <div class="mx-auto w-28 h-28">
+                  <svg viewBox="0 0 160 160" class="w-full h-full">
+                    <circle cx="80" cy="80" r="70" fill="#FFF5F5" />
+                    <circle cx="80" cy="66" r="22" fill="#FFB88C" />
+                    <path d="M70 74 Q80 68 90 74" stroke="#C1121F" stroke-width="4" fill="none"
+                      stroke-linecap="round" />
+                    <circle cx="72" cy="62" r="3" fill="#2A2A2A" />
+                    <circle cx="88" cy="62" r="3" fill="#2A2A2A" />
+                    <circle class="tear" cx="72" cy="80" r="3" fill="#60A5FA" />
+                  </svg>
+                </div>
+                <h4 class="text-xl font-extrabold mt-3 text-rose-600">Belum tepat</h4>
+                <p class="text-slate-600 mt-1 text-sm">Jika ada yang memegang pantatmu, itu tidak pantas. Kamu boleh
+                  berteriak, berlari menjauh, dan melaporkan ke orang terdekat yang kamu percaya.</p>
+                <div class="mt-4 flex items-center justify-center gap-2">
+                  <button id="explainAgain"
+                    class="rounded-xl bg-white/80 hover:bg-white text-slate-800 font-semibold px-4 py-2 transition">Ulangi
+                    penjelasan</button>
+                  <button id="tryAgain"
+                    class="rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 transition">Coba
+                    lagi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GAME FINISH -->
+        <section id="view-game-finish" class="hidden">
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-40 h-40 sm:w-48 sm:h-48 rounded-[32px] bg-white/10 backdrop-blur-md ring-1 ring-white/15 flex items-center justify-center relative">
+              <!-- Kid with toga -->
+              <svg viewBox="0 0 220 220" class="w-32 h-32 celebrate">
+                <circle cx="110" cy="110" r="100" fill="#E8F7FF" opacity="0.5" />
+                <circle cx="110" cy="86" r="28" fill="#FFD6A5" />
+                <path d="M86 78 L110 66 L134 78 L110 90 Z" fill="#2B2D42" class="hat" />
+                <rect x="76" y="120" width="68" height="50" rx="14" fill="#2B2D42" />
+                <rect x="98" y="170" width="8" height="26" rx="4" fill="#FFD6A5" />
+                <rect x="114" y="170" width="8" height="26" rx="4" fill="#FFD6A5" />
+              </svg>
+              <div class="confetti absolute inset-0 pointer-events-none">
+                <span style="left:10%; background:#FF6B6B; animation-duration:2.2s;"></span>
+                <span style="left:30%; background:#FFD166; animation-duration:2.6s;"></span>
+                <span style="left:50%; background:#06D6A0; animation-duration:2.1s;"></span>
+                <span style="left:70%; background:#4CC9F0; animation-duration:2.4s;"></span>
+                <span style="left:85%; background:#B5179E; animation-duration:2.3s;"></span>
+              </div>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold mt-5">Selesai! Kamu Luar Biasa 🎓</h3>
+            <p class="text-white/85 mt-1">Kamu sudah belajar cara melindungi diri.</p>
+            <div class="mt-5 flex items-center gap-3">
+              <button id="toHomeFromGame"
+                class="rounded-full bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 font-semibold px-6 py-3 transition">Kembali
+                ke Beranda</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORY: Q1 -->
+        <section id="view-story-q1" class="hidden">
+          <div class="text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Ayo Bercerita</h3>
+            <p class="text-white/85 mt-1">Jawab pertanyaan ini ya.</p>
+          </div>
+          <div class="mt-6 rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/15 p-5 sm:p-6">
+            <div class="text-center text-lg sm:text-xl">Apakah ada yang menyentuh/melihat bagian tubuhmu?</div>
+            <div class="mt-5 flex items-center justify-center gap-4">
+              <button id="q1-ya"
+                class="rounded-2xl bg-emerald-400/90 hover:bg-emerald-300 text-emerald-950 font-bold px-5 py-3 shadow transition">✅
+                Ya</button>
+              <button id="q1-tidak"
+                class="rounded-2xl bg-rose-400/90 hover:bg-rose-300 text-rose-950 font-bold px-5 py-3 shadow transition">❌
+                Tidak</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORY: Q2 -->
+        <section id="view-story-q2" class="hidden">
+          <div class="text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Bagian tubuh yang mana?</h3>
+            <p class="text-white/85 mt-1">Pilih salah satu ikon.</p>
+          </div>
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+            <!-- Reuse similar icons -->
+            <button data-story-part="tangan"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              🙌 <div class="mt-1 font-semibold">Tangan</div>
+            </button>
+            <button data-story-part="kaki"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              🦶 <div class="mt-1 font-semibold">Kaki</div>
+            </button>
+            <button data-story-part="kepala"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              🙂 <div class="mt-1 font-semibold">Kepala</div>
+            </button>
+            <button data-story-part="kemaluan"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              🔒 <div class="mt-1 font-semibold">Kemaluan</div>
+            </button>
+            <button data-story-part="dada"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              ❤️ <div class="mt-1 font-semibold">Dada</div>
+            </button>
+            <button data-story-part="pantat"
+              class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
+              🍑 <div class="mt-1 font-semibold">Pantat</div>
+            </button>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button id="toQ3" disabled
+              class="rounded-xl bg-white/20 text-white/80 px-5 py-2 transition disabled:opacity-40 disabled:cursor-not-allowed">Lanjut</button>
+          </div>
+        </section>
+
+        <!-- STORY: Q3 -->
+        <section id="view-story-q3" class="hidden">
+          <div class="text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Apa yang kamu rasakan?</h3>
+            <p class="text-white/85 mt-1">Pilih emoji yang paling pas.</p>
+          </div>
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
+            <button data-emote="senang"
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😊</button>
+            <button data-emote="malu"
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😳</button>
+            <button data-emote="sedih"
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😢</button>
+            <button data-emote="marah"
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😠</button>
+          </div>
+          <div class="mt-6 flex justify-end">
+            <button id="toQ4" disabled
+              class="rounded-xl bg-white/20 text-white/80 px-5 py-2 transition disabled:opacity-40 disabled:cursor-not-allowed">Lanjut</button>
+          </div>
+        </section>
+
+        <!-- STORY: Q4 Confirm -->
+        <section id="view-story-q4" class="hidden">
+          <div class="text-center">
+            <h3 class="text-2xl sm:text-3xl font-extrabold">Cek kembali ya</h3>
+            <p class="text-white/85 mt-1">Apakah ini sudah benar?</p>
+          </div>
+          <div class="mt-6 rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/15 p-5 sm:p-6">
+            <div id="confirmSummary" class="text-center text-base sm:text-lg"></div>
+            <div class="mt-5 flex items-center justify-center gap-4">
+              <button id="confirmTrue"
+                class="rounded-2xl bg-emerald-400/90 hover:bg-emerald-300 text-emerald-950 font-bold px-5 py-3 shadow transition">✅
+                Benar</button>
+              <button id="confirmFalse"
+                class="rounded-2xl bg-rose-400/90 hover:bg-rose-300 text-rose-950 font-bold px-5 py-3 shadow transition">❌
+                Tidak</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- STORY FINISH -->
+        <section id="view-story-finish" class="hidden">
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-40 h-40 sm:w-48 sm:h-48 rounded-[32px] bg-white/10 backdrop-blur-md ring-1 ring-white/15 flex items-center justify-center relative">
+              <!-- Thumbs up kid -->
+              <svg viewBox="0 0 220 220" class="w-32 h-32">
+                <circle cx="110" cy="110" r="100" fill="#E8F7FF" opacity="0.5" />
+                <circle cx="110" cy="86" r="28" fill="#FFD6A5" />
+                <rect x="82" y="120" width="56" height="40" rx="12" fill="#06D6A0" />
+                <path d="M140 120 Q160 120 158 136 Q156 150 140 150" fill="#FFD6A5" stroke="#2A2A2A" stroke-width="2" />
+              </svg>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold mt-5">Terima kasih sudah bercerita 👍</h3>
+            <p class="text-white/85 mt-1">Kamu berani! Terus jaga diri dan cerita ke orang tepercaya ya.</p>
+            <div class="mt-5 flex items-center gap-3">
+              <button id="toHomeFromStory"
+                class="rounded-full bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 font-semibold px-6 py-3 transition">Kembali
+                ke Beranda</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script>
+    // State
+    const state = {
+      name: "",
+      kelas: "",
+      partsSelected: new Set(),
+      story: { q1: null, part: null, emote: null }
+    };
+
+    // Utilities
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+    const views = [
+      "view-home", "view-game-parts", "view-game-video", "view-game-finish",
+      "view-story-q1", "view-story-q2", "view-story-q3", "view-story-q4", "view-story-finish"
+    ];
+    function showView(id) {
+      views.forEach(v => {
+        const el = document.getElementById(v);
+        if (!el) return;
+        if (v === id) {
+          el.classList.remove("hidden"); requestAnimationFrame(() => {
+            $$(".card-pop", el).forEach(c => c.classList.add("show"));
+            $$(".fade-in", el).forEach(c => c.classList.add("show"));
+          })
+        }
+        else { el.classList.add("hidden"); }
+      });
+      // Top bar visible when not on home or once biodata submitted
+      if (state.name && state.kelas && id !== "view-home") {
+        $("#topBar")?.classList.remove("hidden");
+        $("#greet").textContent = `Halo, ${state.name} • Kelas ${state.kelas}`;
+        $("#btnHomeTop").classList.remove("hidden");
+      } else if (state.name && state.kelas) {
+        $("#topBar")?.classList.remove("hidden");
+        $("#greet").textContent = `Halo, ${state.name} • Kelas ${state.kelas}`;
+        $("#btnHomeTop").classList.add("hidden");
+      }
+    }
+
+    // Biodata logic
+    const formBiodata = $("#formBiodata");
+    const btnBiodataOK = $("#btnBiodataOK");
+    const overlay = $("#biodataOverlay");
+    const inputNama = $("#nama");
+    const inputKelas = $("#kelas");
+    formBiodata?.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+    function validateBio() {
+      btnBiodataOK.disabled = !(inputNama.value.trim() && inputKelas.value.trim());
+    }
+    inputNama?.addEventListener("input", validateBio);
+    inputKelas?.addEventListener("input", validateBio);
+    btnBiodataOK?.addEventListener("click", (e) => {
+      e.preventDefault();
+      state.name = inputNama.value.trim();
+      state.kelas = inputKelas.value.trim();
+      overlay.classList.add("hidden");
+      // Show subtle glow to main buttons
+      $("#btnPlay")?.classList.add("btn-glow");
+      $("#btnTell")?.classList.add("btn-glow");
+      $("#topBar")?.classList.remove("hidden");
+      $("#greet").textContent = `Halo, ${state.name} • Kelas ${state.kelas}`;
+    });
+
+    // Home buttons
+    $("#btnPlay")?.addEventListener("click", () => {
+      if (!(state.name && state.kelas)) { return; }
+      showView("view-game-parts");
+    });
+    $("#btnTell")?.addEventListener("click", () => {
+      if (!(state.name && state.kelas)) { return; }
+      showView("view-story-q1");
+    });
+    $("#btnHomeTop")?.addEventListener("click", () => showView("view-home"));
+
+    // GAME: parts
+    const partMessages = {
+      kepala: "Ini kepala. Jangan izinkan orang lain memegang kepala tanpa persetujuanmu.",
+      tangan: "Ini tangan. Boleh salaman sopan, tapi kamu berhak menolak.",
+      kaki: "Ini kaki. Kalau ada yang mengganggu, menjauh dan cari bantuan.",
+      dada: "Ini dada. Termasuk area pribadi, tidak boleh disentuh orang lain.",
+      kemaluan: "Ini area kemaluan. Sangat pribadi dan dilindungi. Katakan 'Tidak!' dan pergi.",
+      pantat: "Ini pantat. Tidak boleh disentuh. Berteriak dan jauhi jika ada yang mengganggu."
+    };
+    $$(".part-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const part = card.dataset.part;
+        if (!state.partsSelected.has(part)) {
+          state.partsSelected.add(part);
+          // Visual selected
+          card.classList.remove("bg-white/10", "hover:bg-white/20");
+          card.classList.add("bg-gradient-to-r", "from-emerald-400/80", "to-sky-300/80", "hover:from-emerald-300/90", "hover:to-sky-200/90", "text-emerald-950");
+        }
+        // Show "audio" bubble text (visual)
+        $("#audioBubble").classList.remove("hidden");
+        $("#audioTitle").textContent = part.charAt(0).toUpperCase() + part.slice(1);
+        $("#audioText").textContent = partMessages[part] || "Pesan untukmu.";
+        // Next button appear when all 6 selected
+        if (state.partsSelected.size === 6) {
+          $("#btnNextFromParts").classList.remove("hidden");
+        }
+      });
+    });
+
+    $("#btnNextFromParts")?.addEventListener("click", () => {
+      showView("view-game-video");
+      playSimulation(true);
+    });
+
+    // GAME: "video" simulation
+    let simTimer = null;
+    let simProgressTimer = null;
+    const steps = [
+      { t: 0, text: "Aku sedang mau menyebrang. Ada orang dewasa menawarkan bantuan.", child: 1, adult: 0.6, alert: false },
+      { t: 2.5, text: "Tiba-tiba dia memegang pantatku. Itu tidak pantas!", child: 1, adult: 1.0, alert: true },
+      { t: 5, text: "Aku berteriak keras untuk menarik perhatian.", child: 1, adult: 0.8, alert: false },
+      { t: 7.5, text: "Lalu aku berlari menjauh agar aman.", child: 1, adult: 0.5, alert: false },
+      { t: 10, text: "Aku melapor ke orang terdekat yang kupercaya.", child: 1, adult: 0.5, alert: false },
+    ];
+    const totalDuration = 12; // seconds
+
+    function playSimulation(reset = false) {
+      // Reset UI
+      $("#videoChoices").classList.add("hidden");
+      $("#btnToGameFinish").classList.add("hidden");
+      $("#feedbackOverlay").classList.add("hidden");
+      $("#successBox").classList.add("hidden");
+      $("#errorBox").classList.add("hidden");
+      $("#sceneText").textContent = "Memulai…";
+      $("#progressBar").style.width = "0%";
+      $("#child").style.opacity = 1;
+      $("#adult").style.opacity = 0.5;
+      $("#alertHand").classList.add("hidden");
+
+      let start = Date.now();
+      const runStep = () => {
+        const elapsed = (Date.now() - start) / 1000;
+        // Update progress
+        const pct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+        $("#progressBar").style.width = pct + "%";
+        // Find last step <= elapsed
+        let current = steps[0];
+        for (const s of steps) { if (s.t <= elapsed) current = s; }
+        $("#sceneText").textContent = current.text;
+        $("#child").style.opacity = current.child;
+        $("#adult").style.opacity = current.adult;
+        if (current.alert) $("#alertHand").classList.remove("hidden");
+        else $("#alertHand").classList.add("hidden");
+
+        if (elapsed >= totalDuration) {
+          clearInterval(simTimer);
+          clearInterval(simProgressTimer);
+          $("#sceneText").textContent = "Pertanyaan: Tindakanku tadi benar atau salah?";
+          $("#videoChoices").classList.remove("hidden");
+        }
+      };
+      simTimer = setInterval(runStep, 200);
+      simProgressTimer = simTimer;
+    }
+
+    $("#btnReplay")?.addEventListener("click", () => {
+      clearInterval(simTimer);
+      playSimulation(true);
+    });
+
+    // Video answers
+    $("#btnBenar")?.addEventListener("click", () => {
+      // Correct
+      $("#feedbackOverlay").classList.remove("hidden");
+      $("#successBox").classList.remove("hidden");
+    });
+    $("#btnSalah")?.addEventListener("click", () => {
+      // Incorrect
+      $("#feedbackOverlay").classList.remove("hidden");
+      $("#errorBox").classList.remove("hidden");
+    });
+
+    $("#okSuccess")?.addEventListener("click", () => {
+      $("#feedbackOverlay").classList.add("hidden");
+      $("#btnToGameFinish").classList.remove("hidden");
+      $("#videoChoices").classList.add("hidden");
+      $("#sceneText").textContent = "Mantap! Kita lanjut ya.";
+    });
+    $("#explainAgain")?.addEventListener("click", () => {
+      $("#feedbackOverlay").classList.add("hidden");
+      clearInterval(simTimer);
+      playSimulation(true);
+    });
+    $("#tryAgain")?.addEventListener("click", () => {
+      $("#feedbackOverlay").classList.add("hidden");
+      $("#videoChoices").classList.remove("hidden");
+    });
+
+    $("#btnToGameFinish")?.addEventListener("click", () => showView("view-game-finish"));
+    $("#toHomeFromGame")?.addEventListener("click", () => showView("view-home"));
+
+    // STORY: Q1
+    $("#q1-ya")?.addEventListener("click", () => {
+      state.story.q1 = true;
+      showView("view-story-q2");
+    });
+    $("#q1-tidak")?.addEventListener("click", () => {
+      state.story.q1 = false;
+      showView("view-story-q2");
+    });
+
+    // STORY: Q2
+    $$(".story-part").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".story-part").forEach(b => b.classList.remove("ring-2", "ring-yellow-300", "bg-white/25"));
+        btn.classList.add("ring-2", "ring-yellow-300", "bg-white/25");
+        state.story.part = btn.dataset.storyPart;
+        $("#toQ3").disabled = false;
+      })
+    });
+    $("#toQ3")?.addEventListener("click", () => showView("view-story-q3"));
+
+    // STORY: Q3
+    $$(".emote").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".emote").forEach(b => b.classList.remove("ring-2", "ring-yellow-300", "bg-white/25"));
+        btn.classList.add("ring-2", "ring-yellow-300", "bg-white/25");
+        state.story.emote = btn.dataset.emote;
+        $("#toQ4").disabled = false;
+      })
+    });
+    $("#toQ4")?.addEventListener("click", () => {
+      // Fill summary
+      const yesNo = state.story.q1 ? "Ya" : "Tidak";
+      const mapPart = { tangan: "Tangan", kaki: "Kaki", kepala: "Kepala", kemaluan: "Kemaluan", dada: "Dada", pantat: "Pantat" };
+      const mapEmote = { senang: "Senang 😊", malu: "Malu 😳", sedih: "Sedih 😢", marah: "Marah 😠" };
+      $("#confirmSummary").innerHTML =
+        `<div class="space-y-2">
+           <div>Jawabanmu: <span class="font-semibold">${yesNo}</span></div>
+           <div>Bagian: <span class="font-semibold">${mapPart[state.story.part] || "-"}</span></div>
+           <div>Perasaan: <span class="font-semibold">${mapEmote[state.story.emote] || "-"}</span></div>
+         </div>`;
+      showView("view-story-q4");
+    });
+
+    // STORY: Confirm
+    $("#confirmTrue")?.addEventListener("click", () => showView("view-story-finish"));
+    $("#confirmFalse")?.addEventListener("click", () => {
+      // Go back to choose part again
+      showView("view-story-q2");
+    });
+    $("#toHomeFromStory")?.addEventListener("click", () => showView("view-home"));
+
+    // Start Home view
+    showView("view-home");
+  </script>
+
+</body>
+
+</html>
