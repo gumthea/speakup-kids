@@ -226,10 +226,7 @@
             class="hidden mt-5 mx-auto w-full sm:w-3/4 rounded-2xl bg-white/15 backdrop-blur-md ring-1 ring-white/20 p-4">
             <div class="flex items-start gap-3">
               <div class="rounded-xl bg-white/20 p-2">
-                <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
-                  <rect x="12" y="24" width="16" height="16" rx="4" fill="#FFD166" />
-                  <path d="M32 28 Q44 32 44 40" stroke="#FFD166" stroke-width="4" fill="none" stroke-linecap="round" />
-                </svg>
+                <img id="audioIcon" src="" alt="Logo-audio" class="w-16 h-16" />
               </div>
               <div class="flex-1">
                 <div id="audioTitle" class="font-bold">Pesan</div>
@@ -341,22 +338,14 @@
               <div id="successBox" class="hidden celebrate">
                 <div class="mx-auto w-28 h-28 relative">
                   <!-- kid with hat -->
-                  <!-- <svg viewBox="0 0 160 160" class="w-full h-full">
-                    <circle cx="80" cy="80" r="70" fill="#E8F7FF" />
-                    <circle cx="80" cy="66" r="22" fill="#FFD6A5" />
-                    <path d="M58 56 L80 46 L102 56 L80 66 Z" fill="#2B2D42" class="hat" />
-                    <rect x="54" y="92" width="52" height="34" rx="10" fill="#4CC9F0" />
-                  </svg> 
-                   <div class="confetti absolute inset-0 pointer-events-none"> -->
-                  <!-- confetti pieces -->
-                  <!-- <span style="left:20%; background:#FF6B6B; animation-duration:2.2s"></span>
+                  <img src="assets/images/a_benar.png" alt="Logo" class="w-32 h-32" />
+                  <div class="confetti absolute inset-0 pointer-events-none">
+                    <!-- confetti pieces -->
+                    <span style="left:20%; background:#FF6B6B; animation-duration:2.2s"></span>
                     <span style="left:40%; background:#FFD166; animation-duration:2.6s"></span>
                     <span style="left:60%; background:#06D6A0; animation-duration:2.1s"></span>
                     <span style="left:80%; background:#4CC9F0; animation-duration:2.5s"></span>
-                  </div> -->
-
-                  <lottie-player src="assets/animations/jumping_kid_lottie.json" background="transparent" speed="1"
-                    style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+                  </div>
                 </div>
                 <h4 class="text-xl font-extrabold mt-3 text-emerald-600">Betul! Kamu hebat! 🎉</h4>
                 <p class="text-slate-600 mt-1 text-sm">Saat ada yang menyentuh area pribadi, berteriak, berlari, dan
@@ -370,15 +359,7 @@
               <!-- Error -->
               <div id="errorBox" class="hidden sad">
                 <div class="mx-auto w-28 h-28">
-                  <svg viewBox="0 0 160 160" class="w-full h-full">
-                    <circle cx="80" cy="80" r="70" fill="#FFF5F5" />
-                    <circle cx="80" cy="66" r="22" fill="#FFB88C" />
-                    <path d="M70 74 Q80 68 90 74" stroke="#C1121F" stroke-width="4" fill="none"
-                      stroke-linecap="round" />
-                    <circle cx="72" cy="62" r="3" fill="#2A2A2A" />
-                    <circle cx="88" cy="62" r="3" fill="#2A2A2A" />
-                    <circle class="tear" cx="72" cy="80" r="3" fill="#60A5FA" />
-                  </svg>
+                  <img src="assets/images/a_salah.png" alt="Logo" class="w-32 h-32" />
                 </div>
                 <h4 class="text-xl font-extrabold mt-3 text-rose-600">Belum tepat</h4>
                 <p class="text-slate-600 mt-1 text-sm">Jika ada yang memegang pantatmu, itu tidak pantas. Kamu boleh
@@ -402,14 +383,7 @@
             <div
               class="w-40 h-40 sm:w-48 sm:h-48 rounded-[32px] bg-white/10 backdrop-blur-md ring-1 ring-white/15 flex items-center justify-center relative">
               <!-- Kid with toga -->
-              <svg viewBox="0 0 220 220" class="w-32 h-32 celebrate">
-                <circle cx="110" cy="110" r="100" fill="#E8F7FF" opacity="0.5" />
-                <circle cx="110" cy="86" r="28" fill="#FFD6A5" />
-                <path d="M86 78 L110 66 L134 78 L110 90 Z" fill="#2B2D42" class="hat" />
-                <rect x="76" y="120" width="68" height="50" rx="14" fill="#2B2D42" />
-                <rect x="98" y="170" width="8" height="26" rx="4" fill="#FFD6A5" />
-                <rect x="114" y="170" width="8" height="26" rx="4" fill="#FFD6A5" />
-              </svg>
+              <img src="assets/images/a_finish_main.png" alt="Logo" class="w-32 h-32" />
               <div class="confetti absolute inset-0 pointer-events-none">
                 <span style="left:10%; background:#FF6B6B; animation-duration:2.2s;"></span>
                 <span style="left:30%; background:#FFD166; animation-duration:2.6s;"></span>
@@ -457,32 +431,38 @@
             <!-- Reuse similar icons -->
             <button data-story-part="tangan"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              🙌 <div class="mt-1 font-semibold">Tangan</div>
+              <img src="assets/images/tangan.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Tangan</div>
             </button>
             <button data-story-part="kaki"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              🦶 <div class="mt-1 font-semibold">Kaki</div>
+              <img src="assets/images/kaki.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Kaki</div>
             </button>
             <button data-story-part="kepala"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              🙂 <div class="mt-1 font-semibold">Kepala</div>
+              <img src="assets/images/kepala.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Kepala</div>
             </button>
             <button data-story-part="kemaluan"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              🔒 <div class="mt-1 font-semibold">Kemaluan</div>
+              <img src="assets/images/kemaluan.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Kemaluan</div>
             </button>
             <button data-story-part="dada"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              ❤️ <div class="mt-1 font-semibold">Dada</div>
+              <img src="assets/images/dada.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Dada</div>
             </button>
             <button data-story-part="pantat"
               class="story-part rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-4 transition">
-              🍑 <div class="mt-1 font-semibold">Pantat</div>
+              <img src="assets/images/pantat.png" alt="Logo" class="mx-auto w-16 h-16" />
+              <div class="mt-1 font-semibold">Pantat</div>
             </button>
           </div>
           <div class="mt-6 flex justify-end">
             <button id="toQ3" disabled
-              class="rounded-xl bg-white/20 text-white/80 px-5 py-2 transition disabled:opacity-40 disabled:cursor-not-allowed">Lanjut</button>
+              class="inline-flex items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 px-6 py-3 font-semibold transition disabled:cursor-not-allowed">Lanjut</button>
           </div>
         </section>
 
@@ -492,19 +472,23 @@
             <h3 class="text-2xl sm:text-3xl font-extrabold">Apa yang kamu rasakan?</h3>
             <p class="text-white/85 mt-1">Pilih emoji yang paling pas.</p>
           </div>
-          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5">
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
             <button data-emote="senang"
-              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😊</button>
-            <button data-emote="malu"
-              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😳</button>
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">
+              <img src="assets/images/em_seneng.png" alt="Logo" class="mx-auto w-16 h-16" />
+            </button>
             <button data-emote="sedih"
-              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😢</button>
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">
+              <img src="assets/images/em_sedih.png" alt="Logo" class="mx-auto w-16 h-16" />
+            </button>
             <button data-emote="marah"
-              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">😠</button>
+              class="emote rounded-2xl bg-white/10 hover:bg-white/20 ring-1 ring-white/15 p-5 text-3xl transition">
+              <img src="assets/images/em_marah.png" alt="Logo" class="mx-auto w-16 h-16" />
+            </button>
           </div>
           <div class="mt-6 flex justify-end">
             <button id="toQ4" disabled
-              class="rounded-xl bg-white/20 text-white/80 px-5 py-2 transition disabled:opacity-40 disabled:cursor-not-allowed">Lanjut</button>
+              class="inline-flex items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-yellow-300 hover:text-indigo-900 px-6 py-3 font-semibold transition disabled:opacity-40 disabled:cursor-not-allowed">Lanjut</button>
           </div>
         </section>
 
@@ -533,12 +517,7 @@
             <div
               class="w-40 h-40 sm:w-48 sm:h-48 rounded-[32px] bg-white/10 backdrop-blur-md ring-1 ring-white/15 flex items-center justify-center relative">
               <!-- Thumbs up kid -->
-              <svg viewBox="0 0 220 220" class="w-32 h-32">
-                <circle cx="110" cy="110" r="100" fill="#E8F7FF" opacity="0.5" />
-                <circle cx="110" cy="86" r="28" fill="#FFD6A5" />
-                <rect x="82" y="120" width="56" height="40" rx="12" fill="#06D6A0" />
-                <path d="M140 120 Q160 120 158 136 Q156 150 140 150" fill="#FFD6A5" stroke="#2A2A2A" stroke-width="2" />
-              </svg>
+              <img src="assets/images/a_finsih_cerita.png" alt="Logo" class="mx-auto w-32 h-32" />
             </div>
             <h3 class="text-2xl sm:text-3xl font-extrabold mt-5">Terima kasih sudah bercerita 👍</h3>
             <p class="text-white/85 mt-1">Kamu berani! Terus jaga diri dan cerita ke orang tepercaya ya.</p>
@@ -554,7 +533,6 @@
     </main>
   </div>
 
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script>
     // State
     const state = {
@@ -641,6 +619,14 @@
       kemaluan: "Ini area kemaluan. Sangat pribadi dan dilindungi. Katakan 'Tidak!' dan pergi.",
       pantat: "Ini pantat. Tidak boleh disentuh. Berteriak dan jauhi jika ada yang mengganggu."
     };
+    const partIcons = {
+      kepala: "assets/images/kepala.png",
+      tangan: "assets/images/tangan.png",
+      kaki: "assets/images/kaki.png",
+      dada: "assets/images/dada.png",
+      kemaluan: "assets/images/kemaluan.png",
+      pantat: "assets/images/pantat.png"
+    };
     $$(".part-card").forEach(card => {
       card.addEventListener("click", () => {
         const part = card.dataset.part;
@@ -652,6 +638,7 @@
         }
         // Show "audio" bubble text (visual)
         $("#audioBubble").classList.remove("hidden");
+        $("#audioIcon").src = partIcons[part] || "";
         $("#audioTitle").textContent = part.charAt(0).toUpperCase() + part.slice(1);
         $("#audioText").textContent = partMessages[part] || "Pesan untukmu.";
         // Next button appear when all 6 selected
